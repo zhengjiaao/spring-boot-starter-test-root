@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.6</version>
+        <relativePath/>
+    </parent>-->
+
+    <groupId>com.zja</groupId>
+    <artifactId>spring-boot-starter-test-root</artifactId>
+    <version>2.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>starter-data</module>
+        <module>starter-web-19000</module>
+    </modules>
+
+    <properties>
+        <!--spring-boot-->
+        <spring-boot-dependencies.version>2.5.5</spring-boot-dependencies.version>
+
+        <!--java >=1.8-->
+        <java.version>1.8</java.version>
+        <!--插件版本-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.plugin.version>3.6.0</maven.compiler.plugin.version>
+        <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
+        <mavne.surefire.plugin.version>2.19.1</mavne.surefire.plugin.version>
+        <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
+    </properties>
+
+    <!--阿里镜像库：加速jar依赖下载-->
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--spring-boot-dependencies-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!--maven的编译插件-->
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <!--开发版本-->
+                        <source>${java.version}</source>
+                        <!--.class文件版本-->
+                        <target>${java.version}</target>
+                        <!--打包后的编码-->
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <!--打war-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                </plugin>
+                <!--打包跳过测试-->
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${mavne.surefire.plugin.version}</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven.clean.plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

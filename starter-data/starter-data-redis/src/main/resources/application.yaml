@@ -1,0 +1,18 @@
+spring:
+  redis:
+    host: localhost   # 默认 localhost
+    port: 6379        # 默认 6379
+    database: 0       # 默认 0
+    password:         # 默认 空
+    timeout: 2000     # 连接超时时间（毫秒）
+#    jedis: # 默认 jedis
+    lettuce: # 要添加 commons-pool2
+      pool:
+        max-wait: -1ms  # 默认 -1ms 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-active: 8   # 默认 8    连接池最大连接数（使用负值表示没有限制）
+        max-idle: 8     # 默认 8    连接池中的最大空闲连接
+        min-idle: 0     # 默认 0    连接池中的最小空闲连接
+  data:
+    redis:
+      repositories:
+        enabled: true  # 默认 true 启动redis repositories

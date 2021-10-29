@@ -17,6 +17,7 @@
     <modules>
         <module>starter-data</module>
         <module>starter-web-19000</module>
+        <module>starter-web-services</module>
     </modules>
 
     <properties>

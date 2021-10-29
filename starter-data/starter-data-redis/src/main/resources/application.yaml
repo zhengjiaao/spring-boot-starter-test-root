@@ -16,3 +16,9 @@ spring:
     redis:
       repositories:
         enabled: true  # 默认 true 启动redis repositories
+
+# redisson 自定义
+redisson:
+  host: localhost   # 默认 localhost
+  port: 6379        # 默认 6379
+  database: 0       # 默认 0

@@ -13,7 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- *
+ * 测试Redis 发布、订阅
+ * 先启动 {@link com.zja.RedisApplication},再进行测试类
  */
 @SpringBootTest
 public class RedisMsgPublishTests {

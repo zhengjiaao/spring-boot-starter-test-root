@@ -19,7 +19,7 @@ public class RedissonConfig {
     /**
      * Redisson  对应 redis服务端5.0以上版本
      */
-    final String address = "redis://192.168.159.128:6379";
+    final String address = "redis://127.0.0.1:6379";
     final int database = 0;
 
     //Redisson 原生(支持异步)客户端

@@ -1,3 +1,9 @@
+server:
+  servlet:
+    session:
+      timeout: 1800 # session 失效时间，默认30分钟
+      tracking-modes: URL,COOKIE  # session 会话跟踪模式，当Tomcat没有从Cookie中读取到JSESSIONID时会从请求的url中尝试读取jsessionid=sessionid
+
 spring:
   redis:
     host: localhost   # 默认 localhost
@@ -5,7 +11,7 @@ spring:
     database: 0       # 默认 0
     password:         # 默认 空
     timeout: 2000     # 连接超时时间（毫秒）
-#    jedis: # 默认 jedis
+    #    jedis: # 默认 jedis
     lettuce: # 要添加 commons-pool2
       pool:
         max-wait: -1ms  # 默认 -1ms 连接池最大阻塞等待时间（使用负值表示没有限制）

@@ -20,7 +20,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
- * http://localhost:19000/swagger-ui/index.html#/
+ * http://localhost:port/swagger-ui/index.html#/
  */
 @EnableOpenApi
 @Configuration

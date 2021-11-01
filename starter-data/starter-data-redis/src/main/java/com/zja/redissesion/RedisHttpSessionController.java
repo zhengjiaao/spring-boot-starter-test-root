@@ -9,8 +9,12 @@
 package com.zja.redissesion;
 
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +27,10 @@ import javax.servlet.http.HttpSession;
  */
 @RestController
 public class RedisHttpSessionController {
+
+    @Autowired
+    @Qualifier("redisSessionTemplate")
+    private RedisTemplate redisSessionTemplate;
 
     /**
      * session 属性设置
@@ -89,6 +97,22 @@ public class RedisHttpSessionController {
         httpSession.invalidate();
         System.out.println("销毁sessionid：" + httpSession.getId());
         return httpSession.getId();
+    }
+
+    /**
+     * session 获取redis中的session
+     */
+    @ApiOperation(value = "Redis session 获取属性")
+    @GetMapping("/session/{sessionId}")
+    public Object invalidate(@PathVariable String sessionId) {
+        //redis 中的session key
+        String sessionIdKey = "spring:session:sessions:" + sessionId;
+
+        Object name = redisSessionTemplate.opsForHash().get(sessionIdKey, "sessionAttr:name");
+        Object age = redisSessionTemplate.opsForHash().get(sessionIdKey, "sessionAttr:age");
+        System.out.println(name);
+        System.out.println(age);
+        return true;
     }
 
 }

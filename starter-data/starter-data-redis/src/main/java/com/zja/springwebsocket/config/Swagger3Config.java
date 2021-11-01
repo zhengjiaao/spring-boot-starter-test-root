@@ -6,7 +6,7 @@
  * @Date: 2021-10-22 15:17
  * @Since:
  */
-package com.zja.config;
+package com.zja.springwebsocket.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

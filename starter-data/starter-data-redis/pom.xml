@@ -57,6 +57,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--swagger3 api docs-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>

@@ -8,13 +8,17 @@
  */
 package com.zja.redissesion;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
+ * http://localhost:8080/swagger-ui/index.html#/
+ *
  * 每次请求，同一个session过期时间会重新刷新
  */
 @RestController
@@ -22,10 +26,12 @@ public class RedisHttpSessionController {
 
     /**
      * session 属性设置
-     *
      */
+    @ApiOperation(value = "session 属性设置", notes = "自动创建session")
     @GetMapping("/session/setAttribute")
-    public Object setAttribute(HttpSession httpSession) {
+    public Object setAttribute(HttpServletRequest request) {
+
+        HttpSession httpSession = request.getSession(true);
 
         System.out.println("设置属性httpSession-id: " + httpSession.getId());
 
@@ -46,8 +52,10 @@ public class RedisHttpSessionController {
     /**
      * session 获取属性
      */
+    @ApiOperation(value = "session 获取属性")
     @GetMapping("/session/getAttribute")
-    public Object getAttribute(HttpSession httpSession) {
+    public Object getAttribute(HttpServletRequest request) {
+        HttpSession httpSession = request.getSession(true);
         System.out.println("获取属性：httpSession-id: " + httpSession.getId());
 
         System.out.println("name:" + httpSession.getAttribute("name"));
@@ -58,8 +66,11 @@ public class RedisHttpSessionController {
     /**
      * session 属性移除
      */
+    @ApiOperation(value = "session 属性移除")
     @GetMapping("/session/removeAttribute")
-    public Object removeAttribute(HttpSession httpSession) {
+    public Object removeAttribute(HttpServletRequest request) {
+        HttpSession httpSession = request.getSession(true);
+
         System.out.println("属性移除 httpSession-id: " + httpSession.getId());
         //redis 中也会移除
         httpSession.removeAttribute("age");
@@ -69,8 +80,11 @@ public class RedisHttpSessionController {
     /**
      * session 立刻销毁
      */
+    @ApiOperation(value = "session 销毁")
     @GetMapping("/session/invalidate")
-    public Object invalidate(HttpSession httpSession) {
+    public Object invalidate(HttpServletRequest request) {
+        HttpSession httpSession = request.getSession(true);
+
         //redis 中也会删除
         httpSession.invalidate();
         System.out.println("销毁sessionid：" + httpSession.getId());

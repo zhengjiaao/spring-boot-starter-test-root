@@ -56,8 +56,14 @@ public class WebRestController {
 
     @GetMapping(value = "/get/param/v1")
     @ApiOperation(value = "get-拼接参数")
-    public Object getPath2(@RequestParam("path") String path) {
-        return "get 请求成功: " + path;
+    public Object getPath2(@RequestParam(value = "param") String param) {
+        return "get 请求成功: " + param;
+    }
+
+    @GetMapping(value = "/get/param/v2")
+    @ApiOperation(value = "get-拼接参数", notes = "对象属性参数，相当于 @RequestParam(required = false) 属性名")
+    public Object getPath3(UserDTO userDTO) {
+        return "get 请求成功: " + userDTO;
     }
 
     @GetMapping(value = "/get/object/v1")
@@ -82,6 +88,12 @@ public class WebRestController {
     @ApiOperation(value = "post-无参数", notes = "返回字符串")
     public Object post() {
         return "post 请求成功！";
+    }
+
+    @PostMapping(value = "/post/path/{path}")
+    @ApiOperation(value = "post-路径参数")
+    public Object postPath(@PathVariable("path") String path) {
+        return "post 请求成功: " + path;
     }
 
     @PostMapping(value = "/post/param")
@@ -112,10 +124,16 @@ public class WebRestController {
         return "put 请求成功！";
     }
 
+    @PutMapping(value = "/put/path/{path}")
+    @ApiOperation(value = "put-路径参数")
+    public Object putPath(@PathVariable("path") String path) {
+        return "put 请求成功: " + path;
+    }
+
     @PutMapping(value = "/put/param")
     @ApiOperation(value = "put-参数", notes = "返回字符串")
-    public Object putParam(@RequestParam String name) {
-        return "put 请求成功：" + name;
+    public Object putParam(@RequestParam String param) {
+        return "put 请求成功：" + param;
     }
 
     @PutMapping(value = "/put/object/v1")
@@ -138,7 +156,7 @@ public class WebRestController {
         return "delete 请求成功！";
     }
 
-    @DeleteMapping(value = "/delete/{path}")
+    @DeleteMapping(value = "/delete/path/{path}")
     @ApiOperation(value = "delete-路径参数")
     public Object deletePath1(@PathVariable("path") String path) {
         return "delete 请求成功: " + path;
@@ -146,8 +164,8 @@ public class WebRestController {
 
     @DeleteMapping(value = "/delete/param")
     @ApiOperation(value = "delete-拼接参数")
-    public Object deletePath2(@RequestParam("path") String path) {
-        return "delete 请求成功: " + path;
+    public Object deletePath2(@RequestParam("param") String param) {
+        return "delete 请求成功: " + param;
     }
 
     @DeleteMapping(value = "/delete/object/v1")

@@ -18,6 +18,8 @@
         <module>starter-data</module>
         <module>starter-web-19000</module>
         <module>starter-web-services</module>
+        <module>starter-webflux</module>
+        <module>starter-websocket</module>
     </modules>
 
     <properties>

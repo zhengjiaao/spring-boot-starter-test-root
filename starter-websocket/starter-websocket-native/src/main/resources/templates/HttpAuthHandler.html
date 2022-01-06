@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stomp-v2</title>
+
+    <!--生产环境-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.2/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+
+</head>
+<body onload="disconnect()">
+
+<div>
+    <div>
+        <button id="connect" onclick="connect();">连接</button>
+        <button disabled="disabled" id="disconnect" onclick="disconnect();">断开连接</button>
+    </div>
+    <div id="conversationDiv">
+        <label>输入你的名字</label><input id="name" type="text"/>
+        <button id="sendName" onclick="sendMessage();">发送</button>
+        <p id="response"></p>
+        <p id="callback"></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var sock = null;
+
+    function connect() {
+        //创建连接
+        //WebSocket 协议
+        sock = new WebSocket('ws://localhost:8080/webroot/ws/auth/msg?token=2');
+
+        //SockJS 协议  浏览器不支持WebSocket协议时，可切换至SockJS协议(后台也要变动)
+        // sock = new SockJS('http://localhost:8080/webroot/ws/auth/msg?token=1');
+
+        setConnected(true);
+
+        sock.onopen = function () {
+            //注意，打开连接同时要发送一条消息，不然你会发现服务端接收不到第一条消息
+            sock.send("Hello Server!");
+            console.log('open');
+        };
+
+        //必须要启动监听消息
+        sock.onmessage = function (evt) {
+            onMessage(evt)
+        };
+        sock.onerror = function (evt) {
+            onError(evt)
+        };
+
+        console.log('Connect');
+    }
+
+    function disconnect() {
+        if (sock != null) {
+            sock.close();
+        }
+        console.log('close');
+        setConnected(false);
+        console.log('Disconnected');
+    }
+
+    function sendMessage() {
+        var name = $('#name').val();
+        console.log(name);
+        sock.send(name);
+        console.log('SendMessage');
+    }
+
+    //当收到来自服务器的消息时被调用
+    function onMessage() {
+        sock.onmessage = function (e) {
+            console.log('message', e.data);
+        };
+        console.log('onMessage');
+    }
+
+    function onError() {
+        sock.onmessage = function (e) {
+            console.error("onError WebSocket error observed:", e);
+        }
+    }
+
+
+    function sendName() {
+        var name = $('#name').val();
+        console.log('name:' + name);
+        stompClient.send("/app/hello", {}, JSON.stringify({'name': name}));
+    }
+
+    function showResponse(message) {
+        $("#response").html(message);
+    }
+
+    function showCallback(message) {
+        $("#callback").html(message);
+    }
+
+    function setConnected(connected) {
+        document.getElementById("connect").disabled = connected;
+        document.getElementById("disconnect").disabled = !connected;
+        document.getElementById("conversationDiv").style.visibility = connected ? 'visible' : 'hidden';
+        $("#response").html();
+        $("#callback").html();
+    }
+</script>
+</body>
+</html>

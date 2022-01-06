@@ -14,5 +14,6 @@
 
     <modules>
         <module>starter-data-redis</module>
+        <module>starter-data-mongodb-reactive</module>
     </modules>
 </project>

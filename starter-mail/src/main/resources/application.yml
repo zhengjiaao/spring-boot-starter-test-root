@@ -1,0 +1,9 @@
+spring:
+  mail:
+    #邮箱服务器 qq邮箱 示例 smtp.qq.com
+    host: smtp.qq.com
+    #邮箱 示例 123@qq.com
+    username:
+    #邮箱授权码，注意，不是邮箱密码。获取qq邮箱授权码参考：https://www.jianshu.com/p/9efaff9e9437
+    password:
+    default-encoding: UTF-8

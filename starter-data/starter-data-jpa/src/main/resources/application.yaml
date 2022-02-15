@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    username: test
+    password: pass
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:oracle:thin:@127.0.0.1/orcl
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    url: jdbc:h2:file:d:/tools/h2/mydb;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1
+#    driverClassName: org.h2.Driver
+
+  jpa:
+    show-sql: true # 控制台打印sql
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console # web页面管理h2 http://localhost:8080/h2-console
+#      settings:
+#        web-allow-others: true

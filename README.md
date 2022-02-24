@@ -1,17 +1,21 @@
-# Getting Started
+# spring-boot-starter-test-root
 
-### Reference Documentation
-For further reference, please consider the following sections:
+> [springboot 2.x 官方文档](https://spring.io/projects/spring-boot)
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.5.6/reference/htmlsingle/#boot-features-developing-web-applications)
+## spring-boot-starter 全家桶(组件)示例
 
-### Guides
-The following guides illustrate how to use some features concretely:
+> 以下是已经完成的示例模块
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-
+- [starter-data](./starter-data)
+    - [starter-data-jpa](./starter-data/starter-data-jpa)
+    - [starter-data-mongodb-reactive](./starter-data/starter-data-mongodb-reactive)
+    - [starter-data-redis 缓存库redis](./starter-data/starter-data-redis)
+    - [](./starter-data/starter-data)
+- [starter-mail 发送邮件](./starter-mail) 
+- [starter-quartz 定时任务](./starter-quartz)
+- [starter-test 单元测试](./starter-test)
+- [starter-web-19000 web服务](./starter-web-19000)
+- [starter-web-services](./starter-web-services)
+- [starter-webflux 响应式](./starter-webflux)
+- [starter-websocket 即时通信](./starter-websocket)
+- [](./starter)

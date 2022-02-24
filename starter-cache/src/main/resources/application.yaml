@@ -1,0 +1,4 @@
+spring:
+  cache:
+    cache-names:
+    type: simple # 默 simple

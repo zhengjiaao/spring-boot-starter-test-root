@@ -1,0 +1,4 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /starter-oauth2-client-2

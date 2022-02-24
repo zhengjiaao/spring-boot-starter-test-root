@@ -1,0 +1,8 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /starter-oauth2-server
+
+spring:
+  application:
+    name: oauth2-server

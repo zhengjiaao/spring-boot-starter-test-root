@@ -13,7 +13,20 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>starter-data-redis</module>
+        <module>starter-data-jpa</module>
         <module>starter-data-mongodb-reactive</module>
+        <module>starter-data-redis</module>
     </modules>
+
+<!--    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-bom</artifactId>
+                <version>2021.0.5</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>-->
 </project>

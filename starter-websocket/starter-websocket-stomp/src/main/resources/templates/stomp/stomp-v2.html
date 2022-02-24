@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stomp-v2</title>
+
+    <!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+    <!--开发环境-->
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.2/dist/sockjs.js"></script>
+
+    <!--生产环境-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.2/dist/sockjs.min.js"></script>-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>-->
+
+</head>
+<body>
+<div>
+    <div>
+        <button id="connect" onclick="connect();">连接</button>
+        <button disabled="disabled" id="disconnect" onclick="disconnect();">断开连接</button>
+    </div>
+
+    <div>
+        <label>输入消息：</label> <input type="text" id="message">
+        <button id="sendMessage" onclick="sendMessage();">群发消息</button>
+    </div>
+
+    <p id="response"></p>
+    <p id="callback"></p>
+</div>
+
+<script type="text/javascript">
+
+    var sock = new SockJS('http://localhost:8080/webroot/ws-stomp');
+
+    // 获取STOMP子协议的客户端对象
+    let stompClient = Stomp.over(sock);
+
+    // 定义客户端的认证信息,按需求配置
+    let headers = {
+        Authorization: ''
+    };
+
+    // 拦截输出的一大堆垃圾信息
+    stompClient.debug = function (str) {
+        $("#debug").append(str + "\n");
+    };
+
+    function connect() {
+        // 向服务器发起websocket连接并发送CONNECT帧
+        stompClient.connect(
+            {},
+            function connectCallback(frame) {
+                // 连接成功时（服务器响应 CONNECTED 帧）的回调方法
+                document.getElementById("state-info").innerHTML = "连接成功";
+                console.log('已连接【' + frame + '】');
+                stompClient.subscribe('/topic/getResponse', function (response) {
+                    showResponse(response.body);
+                });
+            },
+            function errorCallBack(error) {
+                // 连接失败时（服务器响应 ERROR 帧）的回调方法
+                document.getElementById("state-info").innerHTML = "连接失败";
+                console.log('连接失败【' + error + '】');
+            }
+        );
+    }
+
+    function disconnect() {
+        if (stompClient != null) {
+            stompClient.disconnect();
+        }
+        console.log('Disconnected');
+    }
+
+    function sendMessage() {
+
+        console.log('SendMessage');
+    }
+
+    function sendName() {
+        var name = $('#name').val();
+        console.log('name:' + name);
+        stompClient.send("/app/hello", {}, JSON.stringify({'name': name}));
+    }
+
+    function showResponse(message) {
+        $("#response").html(message);
+    }
+
+    function showCallback(message) {
+        $("#callback").html(message);
+    }
+
+
+    // var sock = new SockJS('http://localhost:8080/webroot/ws-stomp');
+    //
+    // sock.onopen = function () {
+    //     console.log('open');
+    //     sock.send('test');
+    // };
+    //
+    // sock.onmessage = function (e) {
+    //     console.log('message', e.data);
+    // };
+    //
+    // sock.onclose = function () {
+    //     console.log('close');
+    //     sock.close();
+    // };
+</script>
+</body>
+</html>

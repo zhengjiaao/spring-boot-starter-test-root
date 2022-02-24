@@ -15,7 +15,14 @@
     <packaging>pom</packaging>
 
     <modules>
+<!--        <module>starter-cache</module>-->
         <module>starter-data</module>
+<!--        <module>starter-jdbc</module>-->
+        <module>starter-mail</module>
+<!--        <module>starter-oauth2</module>-->
+        <module>starter-quartz</module>
+<!--        <module>starter-security</module>-->
+        <module>starter-test</module>
         <module>starter-web-19000</module>
         <module>starter-web-services</module>
         <module>starter-webflux</module>

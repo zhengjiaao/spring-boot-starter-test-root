@@ -6,6 +6,7 @@
 
 > 以下是已经完成的示例模块
 
+- [starter-cache 注解式缓存](./starter-cache)
 - [starter-data](./starter-data)
     - [starter-data-jpa](./starter-data/starter-data-jpa)
     - [starter-data-mongodb-reactive](./starter-data/starter-data-mongodb-reactive)

@@ -1,0 +1,27 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1024MB # 默 1MB
+      max-request-size: 1024MB # 默 10MB
+  data:
+    mongodb:
+      #uri: mongodb://test:pass@locahost:27017/test # 默 mongodb://locahost/test
+      #uri: mongodb://test:pass@locahost:27017/test?authSource=admin # 认证库写法
+      #uri: mongodb://user:pwd@ip1:port1,ip2:port2/database # 集群写法
+      host: 127.0.0.1
+      port: 27017
+      username: test
+      password: pass
+      authentication-database: admin # 认证库。线上环境必须
+      database: test
+      ##以下是可选属性
+      auto-index-creation: false # 自动创建索引
+      repositories:
+        type: auto # 默 auto 自动启用存储库
+      #字段命名策略 驼峰命名：自动把实体类的驼峰命名的属性映射到数据库下划线命名的字段
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+      uuid-representation: JAVA_LEGACY # id生成策略
+      #replica-set-name:  # 副本集，需修改mongodb配置
+      gridfs:
+        database: test # 默 ${mongodb.database}
+        bucket: fs # 默 fs

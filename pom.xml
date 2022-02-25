@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
-<!--        <module>starter-cache</module>-->
+        <module>starter-cache</module>
         <module>starter-data</module>
 <!--        <module>starter-jdbc</module>-->
         <module>starter-mail</module>

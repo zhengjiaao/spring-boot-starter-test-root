@@ -14,6 +14,7 @@
 - [starter-mail 发送邮件](./starter-mail) 
 - [starter-quartz 定时任务](./starter-quartz)
 - [starter-test 单元测试](./starter-test)
+- [starter-validation 参数校验](./starter-validation)
 - [starter-web-19000 web服务](./starter-web-19000)
 - [starter-web-services](./starter-web-services)
 - [starter-webflux 响应式](./starter-webflux)

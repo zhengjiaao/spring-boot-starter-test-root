@@ -9,6 +9,7 @@
 - [starter-cache 注解式缓存](./starter-cache)
 - [starter-data](./starter-data)
     - [starter-data-jpa](./starter-data/starter-data-jpa)
+    - [starter-data-mongodb](./starter-data/starter-data-mongodb)
     - [starter-data-mongodb-reactive](./starter-data/starter-data-mongodb-reactive)
     - [starter-data-redis 缓存库redis](./starter-data/starter-data-redis)
     - [](./starter-data/starter-data)

@@ -38,6 +38,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
                 <configuration>
                     <!--解决 jar 命令启动报错问题：no main manifest attribute, in /app.jar-->
                     <mainClass>com.zja.WebApplication</mainClass>

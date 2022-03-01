@@ -22,3 +22,13 @@
 - [starter-webflux 响应式](./starter-webflux)
 - [starter-websocket 即时通信](./starter-websocket)
 - [](./starter)
+
+
+## 适配的中间件版本
+
+> 以下是你可能会用到的中间件
+
+|                    | 官网文档 | github  | 使用版本下载  | 详细  |  推荐  |
+| ----------------- | ---------- | ---------- | ---------- | ---------- | ---------- | 
+| zookeeper        | [zookeeper.apache.org](http://zookeeper.apache.org/releases.html)    |  | [zookeeper-3.6.3-bin.tar.gz](https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3-bin.tar.gz)  |   |  |
+| Git              | [git-scm.com](https://git-scm.com/)       |           | [git-latest](https://git-scm.com/downloads)  |   |  |

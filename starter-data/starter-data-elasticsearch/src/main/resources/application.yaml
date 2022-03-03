@@ -1,0 +1,27 @@
+
+spring:
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          endpoints: localst:9300  # boot连接 默 9300 TCP ，客户端连接 默 9200 HTTP
+          username:
+          password:
+          connection-timeout:
+          socket-timeout:
+          max-in-memory-size:
+          use-ssl: false # 默 false
+      repositories:
+        enabled: true # 默 true
+
+
+
+# elasticsearch
+elasticsearch:
+  schema: http
+  address: 192.168.159.136:9200
+  connectTimeout: 5000
+  socketTimeout: 5000
+  connectionRequestTimeout: 5000
+  maxConnectNum: 100
+  maxConnectPerRoute: 100

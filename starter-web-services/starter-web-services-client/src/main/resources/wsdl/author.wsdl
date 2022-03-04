@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.webservices.zja.com/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="UserService" targetNamespace="http://service.webservices.zja.com/wsdl">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.webservices.zja.com/wsdl" elementFormDefault="unqualified" targetNamespace="http://service.webservices.zja.com/wsdl" version="1.0">
+
+  <xs:element name="getName" type="tns:getName"/>
+
+  <xs:element name="getNameResponse" type="tns:getNameResponse"/>
+
+  <xs:element name="getUser" type="tns:getUser"/>
+
+  <xs:element name="getUserResponse" type="tns:getUserResponse"/>
+
+  <xs:element name="oKongOperationName" type="tns:oKongOperationName"/>
+
+  <xs:element name="oKongOperationNameResponse" type="tns:oKongOperationNameResponse"/>
+
+  <xs:complexType name="getName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="oKongOperationName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="paramName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="oKongOperationNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:userDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="userDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="age" type="xs:int"/>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="oKongOperationName">
+    <wsdl:part element="tns:oKongOperationName" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getName">
+    <wsdl:part element="tns:getName" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserResponse">
+    <wsdl:part element="tns:getUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="oKongOperationNameResponse">
+    <wsdl:part element="tns:oKongOperationNameResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNameResponse">
+    <wsdl:part element="tns:getNameResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUser">
+    <wsdl:part element="tns:getUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UserService">
+    <wsdl:operation name="getName">
+      <wsdl:input message="tns:getName" name="getName">
+    </wsdl:input>
+      <wsdl:output message="tns:getNameResponse" name="getNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="oKongOperationName">
+      <wsdl:input message="tns:oKongOperationName" name="oKongOperationName">
+    </wsdl:input>
+      <wsdl:output message="tns:oKongOperationNameResponse" name="oKongOperationNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input message="tns:getUser" name="getUser">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserResponse" name="getUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserServiceSoapBinding" type="tns:UserService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="oKongOperationName">
+      <soap:operation soapAction="oKongAction" style="document"/>
+      <wsdl:input name="oKongOperationName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="oKongOperationNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserService">
+    <wsdl:port binding="tns:UserServiceSoapBinding" name="UserportName">
+      <soap:address location="http://localhost:8080/webservice/api"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

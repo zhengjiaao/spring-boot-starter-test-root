@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zja</groupId>
-        <artifactId>spring-boot-starter-test-root</artifactId>
+        <artifactId>starter-web-services</artifactId>
         <version>2.0-SNAPSHOT</version>
     </parent>
 
@@ -75,13 +75,13 @@
                             <sourceRoot>${project.basedir}/src/main/java</sourceRoot>
                             <wsdlOptions>
                                 <!-- 指定wsdl文件 -->
-                                <wsdlOption>
-                                    <wsdl>http://localhost:8080/webservice/api?wsdl</wsdl>
-                                </wsdlOption>
                                 <!--<wsdlOption>
+                                    <wsdl>http://localhost:8080/webservice/api?wsdl</wsdl>
+                                </wsdlOption>-->
+                                <wsdlOption>
                                     <wsdl>src/main/resources/wsdl/author.wsdl</wsdl>
                                     <wsdlLocation>classpath:wsdl/author.wsdl</wsdlLocation>
-                                </wsdlOption>-->
+                                </wsdlOption>
                             </wsdlOptions>
                         </configuration>
                         <goals>

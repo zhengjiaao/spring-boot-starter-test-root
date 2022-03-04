@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>starter-actuator</module>
         <module>starter-cache</module>
         <module>starter-data</module>
 <!--        <module>starter-jdbc</module>-->

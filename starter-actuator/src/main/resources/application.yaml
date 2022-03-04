@@ -1,0 +1,31 @@
+
+
+#管理  actuator不建议在生产环境使用，给自己便利的同时也为黑客朋友们提供了便利，实在要用，请加强安全认证和防护
+management:
+  server:
+    port: 8081  # actuator访问端口,默 8080
+  endpoints:
+    web:
+      base-path: /actuator # 默 actuator 访问路径
+      exposure:
+        include: "*"  # 默 health , info端点 用 * 可以包含全部端点
+  endpoint:
+    shutdown:
+      enabled: true # 默 false 打开shutdown端点
+    health:
+      enabled: true # 默 true
+      show-details: always # 默 never 获得健康检查中所有指标的详细信息
+  health:
+    mongo:
+      enabled: false # 默 true，不进行mongo检查
+    redis:
+      enabled: true # 默 true
+    elasticsearch:
+      enabled: true # 默 true
+
+#访问：http://localhost:8081/actuator
+#访问查看系统中的beans
+#http://localhost:8081/actuator/beans
+
+#生产环境下，如果没有启用安全防护（比如没有依赖 spring-boot-starter-security）
+#那么，建议遵循 Deny By Default 原则，将所有的 endpoints 都关掉，然后根据具体情况单独启用某些 endpoint

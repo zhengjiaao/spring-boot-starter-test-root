@@ -10,7 +10,7 @@
 
     <groupId>com.zja</groupId>
     <artifactId>starter-webflux-functional</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>starter-webflux-annotation</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!--<dependency>

@@ -16,6 +16,7 @@
 
     <modules>
         <module>starter-actuator</module>
+        <module>starter-aop</module>
         <module>starter-cache</module>
         <module>starter-data</module>
 <!--        <module>starter-jdbc</module>-->
@@ -76,6 +77,10 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven.clean.plugin.version}</version>
+                </plugin>
                 <!--maven的编译插件-->
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -102,10 +107,6 @@
                     <configuration>
                         <skip>true</skip>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven.clean.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

@@ -20,7 +20,7 @@
         <module>starter-cache</module>
         <module>starter-data</module>
         <module>starter-freemarker</module>
-<!--        <module>starter-jdbc</module>-->
+        <module>starter-jdbc</module>
         <module>starter-mail</module>
 <!--        <module>starter-oauth2</module>-->
         <module>starter-quartz</module>

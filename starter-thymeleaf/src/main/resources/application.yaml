@@ -1,0 +1,19 @@
+spring:
+  thymeleaf:
+    enabled: true # 默 true 启用thymeleaf模板
+    cache: true # 默 true 开发时关闭缓存,不然没法看到实时页面
+    mode: HTML # 默 HTML
+    prefix: classpath:/templates/ # 默 classpath:/templates/
+    encoding: UTF-8 # 默 UTF-8编码
+    servlet:
+      content-type: text/html # 默 text/html类型
+    suffix: .html # 默 .html 后缀
+
+  web:
+    resources:
+      # 静态本地文件 访问配置
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/,classpath:/templates/
+      #默认
+      #static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/
+
+# 访问 http://localhost:8080/thymeleaf/index.html

@@ -1,0 +1,12 @@
+spring:
+  freemarker:
+    cache: false    # 默 false 是否开启thymeleaf缓存,本地开发为false，生产建议为true
+    charset: UTF-8  # 默 UTF-8
+    allow-request-override: false # 默 false 允许请求覆盖
+    check-template-location: true # 默 true  检查模板位置
+    content-type: text/html # 默 text/html 模板类型
+    expose-request-attributes: true # 默 false 公开请求属性
+    expose-session-attributes: true # 默 false 公开会话属性
+    suffix: .ftlh # 默 .ftlh  模板后缀，boot2.x以后默.ftlh，为了安全问题
+    template-loader-path: classpath:/templates/ # 默 classpath:/templates/ 模板存放位置
+

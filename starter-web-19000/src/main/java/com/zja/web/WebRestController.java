@@ -22,6 +22,7 @@ import java.util.List;
  * http://localhost:19000/swagger-ui/index.html#/
  * https://localhost:19001/swagger-ui/index.html#/
  */
+@CrossOrigin
 @Api("提供远程-Rest测试接口")
 @RestController
 @RequestMapping

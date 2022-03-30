@@ -24,6 +24,7 @@ import java.net.URLEncoder;
  * http://localhost:19000/swagger-ui/index.html#/
  * https://localhost:19001/swagger-ui/index.html#/
  */
+@CrossOrigin
 @Api(value = "提供远程-文件上传测试接口")
 @RestController
 @RequestMapping

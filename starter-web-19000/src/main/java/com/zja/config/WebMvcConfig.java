@@ -20,9 +20,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         /**
-         * 虚拟映射：映射本地路径
-         * 访问地址：http://127.0.0.1:19000/public/file
+         * 虚拟映射：映射本地路径和资源路径
          */
+        //访问地址：http://127.0.0.1:19000/public/file
         registry.addResourceHandler("/public/file/**").addResourceLocations("file:D:/picture/");
+        //访问地址：http://127.0.0.1:19000/file
+        registry.addResourceHandler("/file/**").addResourceLocations("classpath:/file/");
     }
 }

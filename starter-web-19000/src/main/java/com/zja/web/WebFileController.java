@@ -12,14 +12,15 @@ import com.zja.dto.UserDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URLEncoder;
 
 /**
@@ -118,15 +119,19 @@ public class WebFileController {
     public void downloadfile(HttpServletResponse response,
                              @ApiParam(value = "filename", defaultValue = "jpg.jpg") @RequestParam String filename) throws IOException {
 
-        //不存在则抛异常
-        File file = null;
+        //打成jar时，无法读取流
+        /*File file = null;
         try {
             file=ResourceUtils.getFile("classpath:file/"+filename);
         }catch (Exception e){
             throw new RuntimeException("资源文件不存在！");
-        }
+        }*/
 
-        byte[] bytes = toByteArray(new FileInputStream(file));
+        //支持读取jar中的文件流
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("file/"+filename);
+
+        byte[] bytes = toByteArray(inputStream);
+//        byte[] bytes = toByteArray(new FileInputStream(file));
         response.setContentType("application/force-download");
         response.addHeader("Content-Disposition", "attachment;filename=" +
                 URLEncoder.encode(filename, "UTF-8"));

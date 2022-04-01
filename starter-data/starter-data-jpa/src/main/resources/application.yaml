@@ -13,7 +13,7 @@ spring:
     show-sql: true # 控制台打印sql
     hibernate:
       naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 默认 会把 userName属性 映射为user_name字段
       ddl-auto: update
 
 #  h2:

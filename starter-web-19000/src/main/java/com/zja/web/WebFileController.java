@@ -12,10 +12,12 @@ import com.zja.dto.UserDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
@@ -104,21 +106,24 @@ public class WebFileController {
 
     @GetMapping(value = "get/download/v1")
     @ApiOperation(value = "下载文件-文件URL")
-    public String downloadfile(@ApiParam(value = "filename", defaultValue = "3840x2160.jpg") @RequestParam String filename) {
-        String url = "http://127.0.0.1:19000/public/file/" + filename;
-        return url;
+    public String downloadfile(@ApiParam(value = "filename", defaultValue = "jpg.jpg") @RequestParam String filename,
+                               HttpServletRequest request) {
+        String urlContextPath = getUrlContextPath(request);
+        String fileUrl= urlContextPath+"/file/"+filename;
+        return fileUrl;
     }
 
     @GetMapping(value = "get/download/v2")
     @ApiOperation(value = "下载文件-文件流")
     public void downloadfile(HttpServletResponse response,
-                             @ApiParam(value = "filename", defaultValue = "3840x2160.jpg") @RequestParam String filename) throws IOException {
-        String basePath = "D:\\picture";
-        String filePath = basePath + File.separator + filename;
+                             @ApiParam(value = "filename", defaultValue = "jpg.jpg") @RequestParam String filename) throws IOException {
 
-        File file = new File(filePath);
-        if (!file.exists()) {
-            throw new FileNotFoundException("不存在文件：" + filePath);
+        //不存在则抛异常
+        File file = null;
+        try {
+            file=ResourceUtils.getFile("classpath:file/"+filename);
+        }catch (Exception e){
+            throw new RuntimeException("资源文件不存在！");
         }
 
         byte[] bytes = toByteArray(new FileInputStream(file));
@@ -144,4 +149,12 @@ public class WebFileController {
         return output.toByteArray();
     }
 
+
+    /**
+     * 获取URL路径
+     * @return http://localhost:19000 或 http://localhost:19000/web
+     */
+    private String getUrlContextPath(HttpServletRequest request){
+        return request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+    }
 }

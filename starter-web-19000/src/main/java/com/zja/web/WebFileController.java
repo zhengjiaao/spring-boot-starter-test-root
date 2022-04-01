@@ -63,10 +63,11 @@ public class WebFileController {
         return true;
     }
 
+    @Deprecated //MultipartFile multipart/form-data 优先级高于 @RequestBody application/json，去掉 @RequestBody 就好
     @PostMapping(value = "/post/upload/v4")
     @ApiOperation(value = "post-上传单文件和json对象", notes = "返回 true")
     public Object postFile(@ApiParam("上传文件") @RequestPart(value = "file") MultipartFile file,
-                           @ApiParam("对象") @RequestBody UserDTO userDTO) {
+                           @ApiParam("对象") /*@RequestBody*/ UserDTO userDTO) {
         System.out.println("上传文件：" + file.getOriginalFilename() + "  大小：" + file.getSize());
         System.out.println(userDTO.toString());
         return true;

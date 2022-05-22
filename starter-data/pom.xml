@@ -14,6 +14,7 @@
 
     <modules>
         <module>starter-data-elasticsearch</module>
+        <module>starter-data-jdbc</module>
         <module>starter-data-jpa</module>
         <module>starter-data-mongodb</module>
         <module>starter-data-mongodb-reactive</module>

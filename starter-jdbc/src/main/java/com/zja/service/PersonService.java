@@ -14,6 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -51,5 +56,30 @@ public class PersonService {
         int i = jdbcTemplate.update(sql, id);
         System.out.println("影响的行数: " + i);
         return i;
+    }
+
+    /**
+     * jdbc 批量处理
+     * 注意：需要在jdbc URL中添加一个参数才支持批量 rewriteBatchedStatements=true
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void jdbcSaveAllByBatch(List<Person> entityList) {
+        if (ObjectUtils.isEmpty(entityList)) {
+            return;
+        }
+
+        String sql = "INSERT INTO person (id,firstname,lastname) VALUES (?,?,?) ";
+
+        List<Object[]> objectList = new ArrayList<>();
+        for (Person entity : entityList) {
+            //顺序与 sql 保持一致
+            objectList.add(new Object[]{
+                    entity.getId(),
+                    entity.getFirstname(),
+                    entity.getLastname()
+            });
+        }
+
+        jdbcTemplate.batchUpdate(sql, objectList);
     }
 }

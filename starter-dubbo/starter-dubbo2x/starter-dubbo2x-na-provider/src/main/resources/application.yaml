@@ -1,0 +1,16 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /provider
+spring:
+  application:
+    name: dubbo-auto-configuration-provider
+
+dubbo:
+  scan:
+    base-packages: com.zja.dubbo.provider
+  protocol:
+    name: dubbo
+    port: 12345
+  registry:
+    address: N/A # 无需注册到服务注册中心

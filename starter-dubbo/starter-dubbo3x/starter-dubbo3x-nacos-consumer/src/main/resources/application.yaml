@@ -1,0 +1,24 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /consumer
+
+spring:
+  application:
+    name: dubbo-nacos-consumer
+
+nacos:
+  host: 192.168.159.1
+  port: 8848
+  username: nacos
+  password: nacos
+
+dubbo:
+  registry:
+    address: nacos://${nacos.host}:${nacos.port}
+  provider:
+    register: false # 默true，消费端不需要注册的情况设置未false
+
+demo:
+  service:
+    version: 1.0.0

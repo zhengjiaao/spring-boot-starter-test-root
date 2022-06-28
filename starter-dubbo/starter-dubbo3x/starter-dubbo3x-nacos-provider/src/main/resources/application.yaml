@@ -1,0 +1,38 @@
+server:
+  port: 8087
+  servlet:
+    context-path: /provider
+
+spring:
+  application:
+    name: dubbo-nacos-provider
+  main:
+    allow-bean-definition-overriding: true
+
+nacos:
+  host: 192.168.159.1
+  port: 8848
+  username: nacos
+  password: nacos
+
+dubbo:
+  application:
+    name: ${spring.application.name}  # 默 ${spring.application.name}
+  scan:
+    base-packages: com.zja.dubbo.nacos.provider
+  protocol:
+    name: dubbo  # Dubbo Protocol
+    port: 20883  # Random port
+  registry:
+    # nacos开启了权限认证
+    # address: nacos://${nacos.host}:${nacos.port}?username=${nacos.username}&password=${nacos.password}&namespace=public
+    #nacos 未开启权限认证
+    address: nacos://${nacos.host}:${nacos.port}
+    #parameters:
+    #  namespace: public # nacos 命名空间
+    #显示在nacos配置列表中 参考：https://github.com/apache/dubbo/issues/7116
+    use-as-metadata-center: false   # 默 true，地址是否作为远程元数据中心，
+    use-as-config-center: false     # 默 true，地址是否作为配置中心
+demo:
+  service:
+    version: 1.0.0

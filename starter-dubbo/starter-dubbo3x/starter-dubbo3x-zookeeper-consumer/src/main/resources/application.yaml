@@ -1,0 +1,19 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /consumer
+
+spring:
+  application:
+    name: dubbo-zookeeper-consumer
+
+dubbo:
+  application:
+    metadata-type: composite
+  registry:
+    address: zookeeper://127.0.0.1:2181?registry-type=service
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+
+demo:
+  service:
+    version: 1.0.0

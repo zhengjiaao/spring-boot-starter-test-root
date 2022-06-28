@@ -1,0 +1,31 @@
+server:
+  port: 8087
+spring:
+  profiles:
+    active: dev
+  application:
+    name: dubbo-nacos-provider
+  main:
+    allow-bean-definition-overriding: true
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.14.22:30001
+#        namespace: public
+
+dubbo:
+  registry:
+    address: nacos://192.168.14.22:30001
+  #    parameters:
+  #      namespace: @nacos.namespace@  # 可选-命名空间
+#  scan:
+#    base-packages: com.zja.dubbo.nacos.provider
+  protocol:
+    name: dubbo
+    port: 4001
+#  provider:
+#    filter: dubboExceptionFilter,-exception  # 自定义过滤器
+
+demo:
+  service:
+    version: 1.0.0

@@ -1,0 +1,24 @@
+server:
+  port: 8087
+  servlet:
+    context-path: /provider
+
+spring:
+  application:
+    name: dubbo-zookeeper-provider
+
+dubbo:
+  application:
+    name: ${spring.application.name}  # 默 ${spring.application.name}
+    metadata-type: composite          # 默 local, 元数据类型
+  scan:
+    base-packages: com.zja.dubbo.zookeeper.provider
+  protocol:
+    name: dubbo   # Dubbo Protocol
+    port: -1      # Random port
+  registry:
+    address: zookeeper://127.0.0.1:2181?registry-type=service
+
+demo:
+  service:
+    version: 1.0.0

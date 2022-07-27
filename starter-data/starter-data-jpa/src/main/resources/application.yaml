@@ -6,13 +6,13 @@ spring:
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC #&rewriteBatchedStatements=true
     driverClassName: com.mysql.cj.jdbc.Driver
     # oracle
-#    username: bj_nr_new
+#    username: test
 #    password: pass
-#    url: jdbc:oracle:thin:@192.168.1.15:1521/ORCL
+#    url: jdbc:oracle:thin:@127.0.0.1:1521/ORCL
 #    driver-class-name: oracle.jdbc.driver.OracleDriver
     # postgresql
-#    username: postgres
-#    password: postgres
+#    username: test
+#    password: pass
 #    url: jdbc:postgresql://localhost:5433/postgres?searchPath=postgres
 #    driver-class-name: org.postgresql.Driver
     # h2

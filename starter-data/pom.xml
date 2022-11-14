@@ -18,6 +18,7 @@
         <module>starter-data-jpa</module>
         <module>starter-data-mongodb</module>
         <module>starter-data-mongodb-reactive</module>
+        <module>starter-data-neo4j</module>
         <module>starter-data-redis</module>
         <module>starter-data-rest</module>
     </modules>

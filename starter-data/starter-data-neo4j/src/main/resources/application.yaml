@@ -1,0 +1,19 @@
+spring:
+  neo4j:
+#    uri: bolt://localhost:7687
+    uri: bolt://192.168.159.136:7687
+    authentication: # 默 neo4j/secret
+      username: neo4j
+      password: secret
+    #下面是可选配置 默认值
+    connection-timeout: 30s
+    max-transaction-retry-time: 30s
+    security:
+      encrypted: false
+      hostname-verification-enabled: true
+    pool:
+      connection-acquisition-timeout: 60s
+      max-connection-pool-size: 100
+      max-connection-lifetime: 1h
+      log-leaked-sessions: false
+      metrics-enabled: false

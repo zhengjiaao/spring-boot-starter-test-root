@@ -32,7 +32,7 @@
                     showGreeting(JSON.parse(greeting.body).content);
                 });
 
-                stompClient.subscribe('/user/' + userid + '/message',function(greeting){
+                stompClient.subscribe('/primaryEntity/' + userid + '/message',function(greeting){
                     alert(JSON.parse(greeting.body).content);
                     showGreeting(JSON.parse(greeting.body).content);
                 });

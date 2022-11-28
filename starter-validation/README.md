@@ -100,7 +100,7 @@ private Product product;
 
 @PostMapping(value = "create")
 @ResponseBody
-public R createUserForm(@Valid User user,BindingResult bindingResult){
+public R createUserForm(@Valid User primaryEntity,BindingResult bindingResult){
     if(bindingResult.hasErrors()){
        //获取错误信息，返回json
         return R.error("请求失败，请重试！");
@@ -112,15 +112,15 @@ public R createUserForm(@Valid User user,BindingResult bindingResult){
     <label for="user_name" class="col-sm-2 control-label">名称:</label>
     <div class="col-xs-4">
         <!--/*@thymesVar id="name" type="java.lang.String"*/-->
-        <input type="text" class="form-control" id="user_name" name="name" th:value="${user.name}" th:field="*{user.name}" />
+        <input type="text" class="form-control" id="user_name" name="name" th:value="${primaryEntity.name}" th:field="*{primaryEntity.name}" />
     </div>
-    <label class="col-sm-2 control-label text-danger" th:if="${#fields.hasErrors('user.name')}" th:errors="*{user.name}">姓名有误!</label>
+    <label class="col-sm-2 control-label text-danger" th:if="${#fields.hasErrors('primaryEntity.name')}" th:errors="*{primaryEntity.name}">姓名有误!</label>
 </div>
 
 <div class="form-group">
     <label for="user_age" class="col-sm-2 control-label">年龄:</label>
     <div class="col-xs-4">
-        <input type="text" class="form-control" id="user_age" name="age" th:value="${user.age}" th:field="*{user.age}" />
+        <input type="text" class="form-control" id="user_age" name="age" th:value="${primaryEntity.age}" th:field="*{primaryEntity.age}" />
     </div>
-    <label class="col-sm-2 control-label text-danger" th:if="${#fields.hasErrors('user.age')}" th:errors="*{user.age}">年龄有误!</label>
+    <label class="col-sm-2 control-label text-danger" th:if="${#fields.hasErrors('primaryEntity.age')}" th:errors="*{primaryEntity.age}">年龄有误!</label>
 </div>

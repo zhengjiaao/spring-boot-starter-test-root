@@ -17,10 +17,13 @@
     <modules>
         <module>starter-actuator</module>
         <module>starter-aop</module>
+        <module>starter-batch</module>
         <module>starter-cache</module>
         <module>starter-data</module>
+        <module>starter-dubbo</module>
         <module>starter-freemarker</module>
         <module>starter-jdbc</module>
+        <module>starter-jta-atomikos</module>
         <module>starter-mail</module>
 <!--        <module>starter-oauth2</module>-->
         <module>starter-quartz</module>

@@ -100,7 +100,7 @@ private Product product;
 
 @PostMapping(value = "create")
 @ResponseBody
-public R createUserForm(@Valid User primaryEntity,BindingResult bindingResult){
+public R createUserForm(@Valid User user,BindingResult bindingResult){
     if(bindingResult.hasErrors()){
        //获取错误信息，返回json
         return R.error("请求失败，请重试！");

@@ -30,6 +30,7 @@
 <!--        <module>starter-security</module>-->
         <module>starter-test</module>
         <module>starter-thymeleaf</module>
+        <module>starter-tomcat</module>
         <module>starter-validation</module>
         <module>starter-web-19000</module>
         <module>starter-web-services</module>

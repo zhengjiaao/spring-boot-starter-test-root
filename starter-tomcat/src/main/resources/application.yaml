@@ -1,0 +1,18 @@
+server:
+  # 可选的，默认值
+  tomcat:
+    uri-encoding: UTF-8
+    accept-count: 100
+    max-connections: 8192
+    max-http-form-post-size: 2MB
+    max-keep-alive-requests: 100
+    max-swallow-size: 2MB
+    processor-cache: 200
+    redirect-context-root: true
+    resource:
+      allow-caching: true
+    threads:
+      max: 200
+      min-spare: 10
+#    connection-timeout:
+#    keep-alive-timeout:

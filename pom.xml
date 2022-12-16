@@ -16,6 +16,7 @@
 
     <modules>
         <module>starter-actuator</module>
+        <module>starter-amqp</module>
         <module>starter-aop</module>
 <!--        <module>starter-batch</module>-->
         <module>starter-cache</module>

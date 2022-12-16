@@ -7,6 +7,7 @@
 > 以下是已经完成的示例模块
 
 - [starter-actuator 应用程序监控](./starter-actuator)
+- [starter-amqp 消息中间件](./starter-amqp)
 - [starter-aop 切面编程](./starter-aop)
 - [starter-cache 注解式缓存](./starter-cache)
 - [starter-data 组件](./starter-data)
@@ -17,13 +18,13 @@
     - [starter-data-mongodb-reactive](./starter-data/starter-data-mongodb-reactive)
     - [starter-data-redis 缓存库redis](./starter-data/starter-data-redis)
     - [starter-data-neo4j 图库](./starter-data/starter-data-neo4j)
-    - [starter-data-redis](./starter-data/starter-data-redis)
     - [starter-data-rest](./starter-data/starter-data-rest)
 - [starter-dubbo RPC调用](./starter-dubbo) 
     - [starter-dubbo2x 基于直连](./starter-dubbo/starter-dubbo2x) 
     - [starter-dubbo3x 基于nacos、zookeeper](./starter-dubbo/starter-dubbo3x) 
 - [starter-freemarker 模板](./starter-freemarker) 
-- [starter-jdbc](./starter-jdbc) 
+- [starter-jdbc 数据库操作](./starter-jdbc) 
+- [starter-jta-atomikos 多数据源+分布式事务管理](./starter-jta-atomikos) 
 - [starter-mail 发送邮件](./starter-mail) 
 - [starter-quartz 定时任务](./starter-quartz)
 - [starter-test 单元测试](./starter-test)

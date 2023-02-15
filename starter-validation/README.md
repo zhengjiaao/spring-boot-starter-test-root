@@ -1,4 +1,10 @@
-# Bean Validation与Hibernate Validation 后台参数验证       
+# Bean Validation与Hibernate Validation 后台参数验证   
+
+预研功能：
+- Validation 基本使用
+- Validation 扩展校验功能示例
+- Validation 异常封装格式
+- Validation 工具类示例    
 
 1、与springboot整合添加Maven依赖
 ```pom

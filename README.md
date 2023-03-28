@@ -43,5 +43,7 @@
 |                    | 官网文档 | github  | 使用版本下载  | 详细  |  推荐  |
 | ----------------- | ---------- | ---------- | ---------- | ---------- | ---------- | 
 | zookeeper        | [zookeeper.apache.org](http://zookeeper.apache.org/releases.html)    |  | [zookeeper-3.6.3-bin.tar.gz](https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3-bin.tar.gz)  |   |  |
+| nacos            | [nacos.io/zh-cn](https://nacos.io/zh-cn/)          | [github.com/alibaba/nacos](https://github.com/alibaba/nacos) | [nacos-1.4.2](https://github.com/alibaba/nacos/releases/tag/1.4.2)  | 搭配dubbo2.x  |  |
+| nacos            | [nacos.io/zh-cn](https://nacos.io/zh-cn/)          | [github.com/alibaba/nacos](https://github.com/alibaba/nacos) | [nacos-2.1.0](https://github.com/alibaba/nacos/releases/tag/2.1.0)  | 搭配dubbo3.x  |  |
 | Git              | [git-scm.com](https://git-scm.com/)       |           | [git-latest](https://git-scm.com/downloads)  |   |  |
 | Rabbitmq         | [Rabbitmq 官方](https://www.rabbitmq.com/)       | [Rabbitmq github](https://github.com/rabbitmq)        | [rabbitmq-server-3.11.5](https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.11.5)  |   |  |

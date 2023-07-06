@@ -47,3 +47,37 @@
 | nacos            | [nacos.io/zh-cn](https://nacos.io/zh-cn/)          | [github.com/alibaba/nacos](https://github.com/alibaba/nacos) | [nacos-2.1.0](https://github.com/alibaba/nacos/releases/tag/2.1.0)  | 搭配dubbo3.x  |  |
 | Git              | [git-scm.com](https://git-scm.com/)       |           | [git-latest](https://git-scm.com/downloads)  |   |  |
 | Rabbitmq         | [Rabbitmq 官方](https://www.rabbitmq.com/)       | [Rabbitmq github](https://github.com/rabbitmq)        | [rabbitmq-server-3.11.5](https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.11.5)  |   |  |
+
+
+## 本地运行环境搭建
+
+> 以下是你必须要安装的基础软件,可以使项目正常打包及运行.
+
+|       | 官网文档                                                                              | github  | 使用版本下载                                                                       | 详细  | 是否必须安装 |
+|-------|-----------------------------------------------------------------------------------| ---------- |------------------------------------------------------------------------------| ---------- |--------| 
+| java  | [www.oracle.com/java8](https://www.oracle.com/java/technologies/downloads/#java8) |  | [java8 downloads](https://www.oracle.com/java/technologies/downloads/#java8) |   | **必须** |
+| maven | [maven.apache.org](https://maven.apache.org/)                                     |  | [maven3.6.2 downloads](https://maven.apache.org/download.cgi)                |   | **必须** |
+
+
+## 后续计划
+
+> 以下是后续计划预研的技术
+
+|              | 说明                            | 是否完成 | 
+|--------------|-------------------------------|-----|
+| cloud-stream | 预研消息中间件kafka、rabbit、rocketmq等 | 计划中 |
+
+
+## 你还可以学习其他项目
+
+> 以下是你可能需要学习的其他项目及技术
+
+|         | 资源地址                                                   | 说明                                                                                           |  |
+|---------|--------------------------------------------------------|----------------------------------------------------------------------------------------------|--|
+| github/zhengjiaao | [github.com/zhengjiaao](https://github.com/zhengjiaao) | 主页面，展示一些比较重要技术预研项目                                                                           |  |
+| zhengjiaao/springcloud-test-root | [springcloud-test-root](https://github.com/zhengjiaao/springcloud-test-root) | springcloud 全家桶(组件) 技术预研框架,内容较多，较基础，偏向于技术的应用，适合初学者快速掌握某项技术，欢迎Star，推荐学习                       |  |
+| zhengjiaao/spring-boot-starter-test-root | [spring-boot-starter-test-root](https://github.com/zhengjiaao/spring-boot-starter-test-root) | spring-boot-starter 2.x 全家桶(组件) 技术预研框架,内容较多，较基础，偏向于技术的应用，适合初学者快速掌握某项技术，欢迎Star，推荐学习           |  |
+| zhengjiaao/springboot-test-root | [springboot-test-root](https://github.com/zhengjiaao/springboot-test-root) | springboot 2.x 技术预研框架,内容较多，较基础，偏向于技术的应用，适合初学者快速掌握某项技术，欢迎Star，推荐学习                            |  |
+| zhengjiaao/spring5x | [spring5x](https://github.com/zhengjiaao/spring5x) | spring 5.x 技术预研框架                                                                            |  |
+| zhengjiaao/springboot-test-redis | [springboot-test-redis](https://github.com/zhengjiaao/springboot-test-redis) | springboot 2.x + redis 项目实战-实例,很早之前学习redis写的，可以学习redis工具类、数据缓存、消息发布和订阅等                      |  |
+| zhengjiaao/springboot-test-mybatis-root | [springboot-test-mybatis-root](https://github.com/zhengjiaao/springboot-test-mybatis-root) | springboot 2.x 集成 mybatis、mybatis-plus、分页插件 pagehelper。 使用 mybatis 实现简单的CRUD操作，动态插入、批量插入等操作。 |  |

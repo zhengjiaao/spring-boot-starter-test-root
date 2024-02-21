@@ -1,5 +1,7 @@
 # Bean Validation与Hibernate Validation 后台参数验证   
 
+- [Spring Validation 参数校验-优秀文章](https://mp.weixin.qq.com/s?__biz=MzU2OTMyMTAxNA==&mid=2247527138&idx=1&sn=92720af4b928d3c7ef657047a14db4ac&chksm=fd0a05f537a2a2ee1f4c6d4ad78f2379507213cb118c5dec0dda7027b95e5db7c64836d93704&from=industrynews&version=4.1.20.6015&platform=win#rd)
+
 预研功能：
 - Validation 基本使用
 - Validation 扩展校验功能示例

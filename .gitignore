@@ -32,4 +32,5 @@ build/
 .vscode/
 
 ### JPAQueryFactory generated-sources ###
-/starter-data/starter-data-jpa/src/generated-sources/
+#/starter-data/starter-data-jpa/src/generated-sources/
+**/src/generated-sources/

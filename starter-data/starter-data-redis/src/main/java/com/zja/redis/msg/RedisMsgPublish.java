@@ -14,6 +14,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 /**
  * Redis消息发布-发送消息
  */
+@Deprecated // todo 会有一些坑，比如：多加双引号 "" 或 json字符串内容转义
 public class RedisMsgPublish {
 
     @Autowired
@@ -21,6 +22,7 @@ public class RedisMsgPublish {
 
     /**
      * 发布消息
+     *
      * @param channel 通道
      * @param message 消息
      */

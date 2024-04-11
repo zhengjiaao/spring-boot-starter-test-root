@@ -6,10 +6,11 @@
  * @Date: 2021-10-28 16:24
  * @Since:
  */
-package com.zja.redis.config;
+package com.zja.redis.msg.config;
 
 import com.zja.redis.msg.RedisMsgSubscribeListenerV1;
 import com.zja.redis.msg.RedisMsgSubscribeListenerV2;
+import com.zja.redis.msg.RedisMsgSubscribeListenerV3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +31,9 @@ public class RedisMsgSubscribeConfig {
     @Autowired
     private RedisMsgSubscribeListenerV2 redisMsgSubscribeListenerV2;
 
+    @Autowired
+    private RedisMsgSubscribeListenerV3 redisMsgSubscribeListenerV3;
+
     /**
      * Redis 消息侦听器容器（工厂）
      */
@@ -45,6 +49,7 @@ public class RedisMsgSubscribeConfig {
          */
         container.addMessageListener(redisMsgSubscribeListenerV1, new ChannelTopic(redisMsgSubscribeListenerV1.channel));
         container.addMessageListener(redisMsgSubscribeListenerV2, new ChannelTopic(redisMsgSubscribeListenerV2.channel));
+        container.addMessageListener(redisMsgSubscribeListenerV3, new ChannelTopic(redisMsgSubscribeListenerV3.channel));
         return container;
     }
 

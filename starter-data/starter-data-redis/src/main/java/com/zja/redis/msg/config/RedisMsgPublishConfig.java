@@ -6,7 +6,7 @@
  * @Date: 2021-10-28 16:23
  * @Since:
  */
-package com.zja.redis.config;
+package com.zja.redis.msg.config;
 
 import com.zja.redis.msg.RedisMsgPublish;
 import org.springframework.context.annotation.Bean;

@@ -1,8 +1,11 @@
-package com.zja.dto;
+package com.zja.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,6 +16,9 @@ import java.util.Date;
  */
 @ApiModel(value = "用户信息")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class UserDTO implements Serializable {
     @ApiModelProperty(value = "用户id")
     private String id;

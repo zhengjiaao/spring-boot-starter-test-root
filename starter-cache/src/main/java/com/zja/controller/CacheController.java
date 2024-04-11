@@ -8,7 +8,7 @@
  */
 package com.zja.controller;
 
-import com.zja.dto.UserDTO;
+import com.zja.model.UserDTO;
 import com.zja.service.CacheDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;

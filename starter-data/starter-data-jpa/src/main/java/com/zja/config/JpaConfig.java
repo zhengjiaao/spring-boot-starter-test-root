@@ -8,13 +8,10 @@
  */
 package com.zja.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-@Configuration
-@EnableJpaRepositories(basePackages = "com.zja.repositorys")
-@EnableTransactionManagement
+//可选的
+//@Configuration
+//@EnableJpaRepositories(basePackages = "com.zja.repositorys")
+//@EnableTransactionManagement
 public class JpaConfig {
 
 }

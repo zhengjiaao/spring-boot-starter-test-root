@@ -1,78 +1,96 @@
-/**
- * @Company: 上海数慧系统技术有限公司
- * @Department: 数据中心
- * @Author: 郑家骜[ào]
- * @Email: zhengja@dist.com.cn
- * @Date: 2022-02-15 15:20
- * @Since:
- */
 package com.zja.controller;
-import com.zja.entitys.UserEntity;
-import com.zja.repositorys.UserRepository;
+
+import com.zja.model.dto.OrgDTO;
+import com.zja.model.dto.PageData;
+import com.zja.model.dto.RoleDTO;
+import com.zja.model.dto.UserDTO;
+import com.zja.model.request.*;
+import com.zja.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import java.util.List;
 
+/**
+ * @author: zhengja
+ * @since: 2024/02/21 14:57
+ */
+@Validated
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/rest/user")
+@Api(tags = {"用户管理页面"})
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    UserService service;
 
-    @PostMapping("/post/save")
-    public Object save(@RequestParam String userName,
-                       @RequestParam int age) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUserName(userName);
-        userEntity.setAge(age);
-        userEntity.setCreateTime(new Date());
-        return userRepository.save(userEntity);
+    @GetMapping("/query/{id}")
+    @ApiOperation("查询单个用户详情")
+    public UserDTO queryById(@NotBlank @PathVariable("id") String id) {
+        return service.findById(id);
     }
 
-    @GetMapping("/get/count")
-    public Object countByUserName(@RequestParam String userName) {
-        return userRepository.countByUserName(userName);
+    @GetMapping("/page/list")
+    @ApiOperation("分页查询用户列表")
+    public PageData<UserDTO> pageList(@Valid UserPageSearchRequest pageSearchRequest) {
+        return service.pageList(pageSearchRequest);
     }
 
-    @GetMapping("/get/delete")
-    public Object deleteByUserName(@RequestParam String userName) {
-        return userRepository.deleteByUserName(userName);
+    @PostMapping("/add")
+    @ApiOperation("添加用户")
+    public UserDTO add(@Valid @RequestBody UserRequest request) {
+        return service.add(request);
     }
 
-    @GetMapping("/get/page")
-    public Object findByUserName(@RequestParam String userName,
-                                 @RequestParam Integer pageNum,
-                                 @RequestParam Integer pageSize) {
-        //当前页， 每页记录数
-        Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
-        return userRepository.findByUserName(userName, pageable);
+    @PutMapping("/update/{id}")
+    @ApiOperation("更新用户")
+    public UserDTO update(@NotBlank @PathVariable("id") String id,
+                          @Valid @RequestBody UserUpdateRequest updateRequest) {
+        return service.update(id, updateRequest);
     }
 
-    /**
-     * 列举了四种排序方式：
-     * 1）直接创建Sort对象，适合对单一属性做排序
-     * 2）通过Sort.Order对象创建Sort对象，适合对单一属性做排序
-     * 3）通过属性的List集合创建Sort对象，适合对多个属性，采取同一种排序方式的排序
-     * 4）通过Sort.Order对象的List集合创建Sort对象，适合所有情况，比较容易设置排序方式
-     */
-    @GetMapping("/get/sort")
-    public Object findByUserName(@RequestParam String userName) {
-        return userRepository.findByUserName(userName, Sort.by("id", "createTime"));
+    @DeleteMapping("/delete/{id}")
+    @ApiOperation("删除用户")
+    public void deleteById(@NotBlank @PathVariable("id") String id) {
+        service.deleteById(id);
     }
 
-    @GetMapping("/get/entityname")
-    public Object entityname(@RequestParam String userName) {
-        return userRepository.findByUserName(userName);
+    @DeleteMapping("/delete/batch")
+    @ApiOperation("批量删除用户")
+    public void deleteBatch(@RequestBody List<String> ids) {
+        service.deleteBatch(ids);
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity queryById(@PathVariable Long id) {
-        return ResponseEntity.ok(id);
+    // ===================用户和角色关联==================
+
+    @PostMapping("/{id}/user2roles")
+    @ApiOperation("为用户绑定角色")
+    public void bindUserRoles(@PathVariable("id") String id, @RequestBody List<String> roleIds) {
+        service.bindUserRoles(new UserBindRolesRequest(id, roleIds));
+    }
+
+    @GetMapping("/{id}/roles")
+    @ApiOperation("查看用户已关联的角色（包括用户关联的组织机构下绑定的角色）")
+    public List<RoleDTO> queryUserRoles(@PathVariable("id") String id) {
+        return service.queryUserRoles(id);
+    }
+
+    // ===================用户和组织机构关联==================
+
+    @PostMapping("/{id}/user2orges")
+    @ApiOperation("将用户添加到组织机构下")
+    public void bindUserOrges(@PathVariable("id") String id, @RequestBody List<String> orgIds) {
+        service.bindUserOrges(new UserBindOrgsRequest(id, orgIds));
+    }
+
+    @GetMapping("/{id}/orges")
+    @ApiOperation("查看用户绑定的组织机构")
+    public List<OrgDTO> queryUserOrges(@PathVariable("id") String id) {
+        return service.queryUserOrges(id);
     }
 }

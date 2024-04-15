@@ -27,8 +27,10 @@ spring:
       ddl-auto: update  # update会导致启动至 org.hibernate.dialect.Dialect 时卡住
       naming:
         # physical-strategy: 物理策略 把[属性名] 映射为 [表字段]，默认 将实体类的属性名映射表中策略是：userName --> user_name
-        #        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy # 默认，Spring 物理命名策略，示例： userName --> user_name，@Column(name = "LICENSENUMBER") --> licensenumber  name变为小写
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 驼峰命名策略，示例： userName --> userName，@Column(name = "LICENSENUMBER") --> LICENSENUMBER     name变为大写
+        # 物理策略(默认 Spring物理命名策略)，示例：userName --> user_name，@Column(name = "USERNAME") --> username  name变为小写
+        #physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        # 物理策略(驼峰命名)，示例：userName --> userName，@Column(name = "username") --> USERNAME     name变为大写
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 #    properties:
 #      hibernate:
 #        default_schema: public    # oracle 和 pg 库一般会用到

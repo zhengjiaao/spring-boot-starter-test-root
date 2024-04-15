@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--<parent>
+    <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.6</version>
+        <version>2.5.5</version>
         <relativePath/>
-    </parent>-->
+    </parent>
 
     <groupId>com.zja</groupId>
     <artifactId>spring-boot-starter-test-root</artifactId>
@@ -18,7 +18,7 @@
         <module>starter-actuator</module>
         <module>starter-amqp</module>
         <module>starter-aop</module>
-<!--        <module>starter-batch</module>-->
+        <!--<module>starter-batch</module>-->
         <module>starter-cache</module>
         <module>starter-data</module>
         <module>starter-dubbo</module>
@@ -26,9 +26,9 @@
         <module>starter-jdbc</module>
         <module>starter-jta-atomikos</module>
         <module>starter-mail</module>
-<!--        <module>starter-oauth2</module>-->
+        <!--<module>starter-oauth2</module>-->
         <module>starter-quartz</module>
-<!--        <module>starter-security</module>-->
+        <!--<module>starter-security</module>-->
         <module>starter-test</module>
         <module>starter-thymeleaf</module>
         <module>starter-tomcat</module>
@@ -71,13 +71,13 @@
     <dependencyManagement>
         <dependencies>
             <!--spring-boot-dependencies-->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -114,6 +114,11 @@
                     <configuration>
                         <skip>true</skip>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-dependencies.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

@@ -25,7 +25,7 @@ public class ExampleUser extends BaseEntity {
     /**
      * 用户名
      */
-    @Column(name = "user_name", nullable = false)
+    @Column(name = "user_name")
     private String name;
 
     /**
@@ -33,6 +33,11 @@ public class ExampleUser extends BaseEntity {
      */
     @Column(name = "LOGIN_NAME", nullable = false)
     private String loginName;
+
+    /**
+     * 住址
+     */
+    private String address;
 
     /**
      * 年龄

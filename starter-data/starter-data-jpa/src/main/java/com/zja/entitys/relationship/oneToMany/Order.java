@@ -18,7 +18,7 @@ import javax.persistence.*;
  */
 @Data
 @Entity
-@Table(name = "orders")
+@Table(name = "om_orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +26,7 @@ public class Order {
 
     private String orderName;  //订单名称
 
-//    @ManyToOne //多对一
-//    @JoinColumn(name = "customerNumber")
-//    private Customer customer;
+   @ManyToOne //多对一
+   @JoinColumn(name = "customerNumber")
+   private Customer customer;
 }

@@ -13,11 +13,13 @@ import lombok.Data;
 import javax.persistence.*;
 
 /**
+ * 办公室
+ *
  * @author: zhengja
  * @since: 2023/09/28 12:39
  */
 @Entity
-@Table(name = "offices")
+@Table(name = "oo_offices")
 @Data
 public class Office {
     @Id
@@ -25,5 +27,5 @@ public class Office {
     @Column(name = "officeCode")
     private Integer code;
 
-    private String officeName; //办公室名称
+    private String officeName; // 办公室名称
 }

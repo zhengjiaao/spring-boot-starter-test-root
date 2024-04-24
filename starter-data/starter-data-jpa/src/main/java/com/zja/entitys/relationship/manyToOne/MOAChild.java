@@ -6,13 +6,17 @@
  * @Date: 2023-09-28 15:15
  * @Since:
  */
-package com.zja.entitys.relationship.oneToMany;
+package com.zja.entitys.relationship.manyToOne;
 
 import lombok.Data;
 
 import javax.persistence.*;
 
 /**
+ * 子实体
+ * <p>
+ * 一对多：存在中间表
+ * <p>
  * 外键关联，一般子实体类这边维护，因此由 Child 来关联
  *
  * @author: zhengja
@@ -20,24 +24,21 @@ import javax.persistence.*;
  */
 @Data
 @Entity
-@Table(name = "child")
-public class Child {
+@Table(name = "mo_a_child")
+public class MOAChild {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
 
-    // 外键关联，一般子实体类这边维护，因此由 Child 来关联
-    // Child 表会生成一个字段，默认 parent_id
-
-    //方式 1：使用 Child 表关联方式，Child 表会生成一个字段，默认 parent_id
-//    @ManyToOne(fetch = FetchType.LAZY)
+    // (可选)方式 1：使用Child表关联方式：Child表会生成一个字段，默认 parent_id
+   @ManyToOne
 //    @JoinColumn(name = "parent_id2")
 //    @JoinColumn(name = "parent_id3", referencedColumnName = "id")  // (可选地),referencedColumnName若为 Parent 主键id，则可以省略。
-//    private Parent parent;
+   private MOAParent parent;
 
-    //方式 2：使用中间表关联方式，中间表自动创建，会生成两个字段
+    // (可选)方式 2：使用中间表关联方式：child_parent中间表自动创建，会生成两个字段
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinTable(name = "child_parent",
 //            joinColumns = @JoinColumn(name = "child_id"),

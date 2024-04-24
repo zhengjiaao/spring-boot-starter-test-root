@@ -39,32 +39,4 @@ public interface UserRepo extends
     Optional<User> findByLoginName(String loginName);
 
     List<User> findByIdIn(List<String> ids);
-
-    //统计查询
-    long countByName(String name);
-
-    //删除查询
-    long deleteByName(String name);
-
-    List<User> removeByName(String name);
-
-    //实体类名称
-    @Query("select u from #{#entityName} u where u.name = ?1")
-//    @Query("select u from UserEntity u where u.name = ?1")
-    List<User> findByName(String name);
-
-    //分页查询
-    Page<User> findByName(String lastname, Pageable pageable);
-
-    List<User> findByName(String name, Sort sort);
-    //List<User> findByName(String lastname, Pageable pageable);
-
-/*    //使用 SpEL 表达式 - 通配符快捷方式
-    @Query("select u from UserEntity u where u.name like %:#{[0]}% and u.name like %:lastname%")
-    List<UserEntity> findByNameWithSpelExpression(@Param("name") String name);
-
-    //修改查询
-    @Modifying
-    @Query("update UserEntity u set u.firstname = ?1 where u.name = ?2")
-    int setFixedFirstnameFor(String firstname, String name);*/
 }

@@ -8,7 +8,7 @@
  */
 package com.zja.dao.relationship.oneToMany;
 
-import com.zja.entitys.relationship.oneToMany.Child;
+import com.zja.entitys.relationship.oneToMany.CChild;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
@@ -19,9 +19,9 @@ import org.springframework.stereotype.Repository;
  * @since: 2023/09/28 15:19
  */
 @Repository
-public interface ChildRepo extends
-        JpaRepository<Child, Long>,
-        CrudRepository<Child, Long>,
-        JpaSpecificationExecutor<Child> {
+public interface CChildRepo extends
+        JpaRepository<CChild, Long>,
+        CrudRepository<CChild, Long>,
+        JpaSpecificationExecutor<CChild> {
 
 }

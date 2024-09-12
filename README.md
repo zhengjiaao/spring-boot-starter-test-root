@@ -35,6 +35,15 @@
 - [starter-webflux 响应式](./starter-webflux)
 - [starter-websocket 即时通信](./starter-websocket)
 
+## 本地运行环境搭建
+
+> 以下是你必须要安装的基础软件,可以使项目正常打包及运行.
+
+|       | 官网文档                                                                              | github | 使用版本下载                                                                       | 详细 | 是否必须安装 |
+|-------|-----------------------------------------------------------------------------------|--------|------------------------------------------------------------------------------|----|--------| 
+| java  | [www.oracle.com/java8](https://www.oracle.com/java/technologies/downloads/#java8) |        | [java8 downloads](https://www.oracle.com/java/technologies/downloads/#java8) |    | **必须** |
+| maven | [maven.apache.org](https://maven.apache.org/)                                     |        | [maven3.6.2 downloads](https://maven.apache.org/download.cgi)                |    | **必须** |
+
 ## 适配的中间件版本
 
 > 以下是你可能会用到的中间件
@@ -46,15 +55,6 @@
 | nacos     | [nacos.io/zh-cn](https://nacos.io/zh-cn/)                         | [github.com/alibaba/nacos](https://github.com/alibaba/nacos) | [nacos-2.1.0](https://github.com/alibaba/nacos/releases/tag/2.1.0)                                                              | 搭配dubbo3.x |    |
 | Git       | [git-scm.com](https://git-scm.com/)                               |                                                              | [git-latest](https://git-scm.com/downloads)                                                                                     |            |    |
 | Rabbitmq  | [Rabbitmq 官方](https://www.rabbitmq.com/)                          | [Rabbitmq github](https://github.com/rabbitmq)               | [rabbitmq-server-3.11.5](https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.11.5)                                      |            |    |
-
-## 本地运行环境搭建
-
-> 以下是你必须要安装的基础软件,可以使项目正常打包及运行.
-
-|       | 官网文档                                                                              | github | 使用版本下载                                                                       | 详细 | 是否必须安装 |
-|-------|-----------------------------------------------------------------------------------|--------|------------------------------------------------------------------------------|----|--------| 
-| java  | [www.oracle.com/java8](https://www.oracle.com/java/technologies/downloads/#java8) |        | [java8 downloads](https://www.oracle.com/java/technologies/downloads/#java8) |    | **必须** |
-| maven | [maven.apache.org](https://maven.apache.org/)                                     |        | [maven3.6.2 downloads](https://maven.apache.org/download.cgi)                |    | **必须** |
 
 ## 后续计划
 

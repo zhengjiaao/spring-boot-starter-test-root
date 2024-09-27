@@ -101,6 +101,12 @@
             <version>3.0.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>2.0.6</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -158,8 +164,13 @@
                 <executions>
                     <execution>
                         <configuration>
-                            <!--启用简单字段的延迟加载-->
+                            <!--可选地-->
+                            <failOnError>true</failOnError>
+                            <enableDirtyTracking>true</enableDirtyTracking>
+                            <!--必要的，启用简单字段的延迟加载-->
                             <enableLazyInitialization>true</enableLazyInitialization>
+                            <!--可选地，存在懒加载集合关联需要加上这个配置-->
+                            <!--<enableAssociationManagement>true</enableAssociationManagement>-->
                         </configuration>
                         <goals>
                             <goal>enhance</goal>

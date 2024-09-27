@@ -41,6 +41,10 @@ spring:
 #        order_inserts: true
 #        order_updates: true
 
+#        enable_lazy_load_no_trans: true # jpa hibernate 懒加载
+#    # true一直开启session，避免导致懒加载失败
+#    open-in-view: true # 默认false，会导致懒加载失效 @Basic(fetch = FetchType.LAZY)
+
 #  h2:
 #    console:
 #      enabled: true

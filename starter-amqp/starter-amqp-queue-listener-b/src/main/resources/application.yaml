@@ -1,0 +1,21 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2049MB     # 设置单文件大小 2G
+      max-request-size: 5121MB  # 设置总上传数据总大小 5G
+
+  rabbitmq:
+#    addresses: 192.168.159.145:5672
+#    username: admin # 默 guest
+#    password: pass # 默 guest
+#    virtual-host: /
+    addresses: 192.168.1.60:37024
+    username: admin
+    password: 4k&9!Tb1Y#VR
+    virtual-host: /dist
+#    publisher-confirm-type: correlated # 确认模式，correlated：发送方确认，nack：接收方确认

@@ -10,39 +10,14 @@
 
     <groupId>com.zja</groupId>
     <artifactId>starter-amqp</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <!--MQ rabbitmq-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-            <!--内置 amqp-client 5.9.0-->
-        </dependency>
-        <!--MQ rabbitmq Json 消息转换器-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
+    <modules>
+        <module>starter-amqp-example</module>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
+        <module>starter-amqp-queue-listener-a</module>
+        <module>starter-amqp-queue-listener-b</module>
+        <module>starter-amqp-queue-send</module>
+    </modules>
 
 </project>

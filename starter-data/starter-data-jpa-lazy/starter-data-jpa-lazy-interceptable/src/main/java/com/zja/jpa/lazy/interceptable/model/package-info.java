@@ -1,0 +1,1 @@
+package com.zja.jpa.lazy.interceptable.model;

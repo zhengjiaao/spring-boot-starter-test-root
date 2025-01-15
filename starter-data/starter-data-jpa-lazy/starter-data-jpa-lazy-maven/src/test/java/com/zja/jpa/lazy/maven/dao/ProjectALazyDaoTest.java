@@ -59,6 +59,26 @@ public class ProjectALazyDaoTest {
     }
 
     @Test
+    public void update_test() {
+        Optional<ProjectALazy> optional = repo.findByName("名称-1");
+        optional.ifPresent(project -> {
+            System.out.println(project.getId());
+            System.out.println(project.getName());
+            System.out.println(project.getCreateTime());
+            System.out.println(project.getLastModifiedDate());
+            System.out.println("-------------特殊字段-------------");
+            System.out.println(project.getConfigJson());
+            System.out.println(project.getConfigText());
+            System.out.println("--------------------------");
+        });
+
+        ProjectALazy project = optional.get();
+        project.setConfigJson(JSON.parseObject("{\"key\":\"value-更新后的值\"}"));
+        project.setConfigText("大文本字段-更新后的值");
+        repo.save(project);
+    }
+
+    @Test
     public void findAll_test() {
         List<ProjectALazy> projectList = repo.findAll(); // 支持懒加载
         System.out.println("总条数：" + projectList.size());

@@ -178,6 +178,8 @@ Hibernate: select project0_.id as id1_0_, project0_.create_time as create_t4_0_,
 
 缺点：需要自己实现懒加载逻辑代码，才会用生效。
 
+严重bug: 更新时，不会懒加载字段，导致懒加载字段值不会变更。
+
 采用`PersistentAttributeInterceptable` + `@Basic(fetch = FetchType.LAZY)` 注解，实现懒加载。
 
 配置文件（可选地，有些版本不需要配置）：

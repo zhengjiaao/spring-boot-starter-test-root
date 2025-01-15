@@ -8,6 +8,7 @@ import org.hibernate.engine.spi.PersistentAttributeInterceptor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -133,23 +134,26 @@ public class ProjectBLazy implements Serializable, PersistentAttributeIntercepta
     public void setConfigJson(JSONObject configJson) {
         if (configJson != null) {
             if (interceptor != null) {
+                // todo 更新不生效，未执行更新SQL语句
                 interceptor.writeObject(this, "configJson", this.configJson, configJson);
-            } /*else { // 保存时，interceptor拦截器会是空
+            } else { // 保存时，interceptor拦截器会是空
                 // 可以选择抛出异常、记录日志或采取其他措施
-                throw new IllegalStateException("Interceptor is not initialized");
-            }*/
+                // throw new IllegalStateException("Interceptor is not initialized");
+            }
         }
+
         this.configJson = configJson;
     }
 
     public void setConfigText(String configText) {
         if (configText != null) {
             if (interceptor != null) {
+                // todo 更新不生效，未执行更新SQL语句
                 interceptor.writeObject(this, "configText", this.configText, configText);
-            } /*else { // 保存时，interceptor拦截器会是空
+            } else { // 保存时，interceptor拦截器会是空
                 // 可以选择抛出异常、记录日志或采取其他措施
                 throw new IllegalStateException("Interceptor is not initialized");
-            }*/
+            }
         }
         this.configText = configText;
     }

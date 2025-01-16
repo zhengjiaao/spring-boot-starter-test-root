@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
@@ -59,6 +60,8 @@ public class ProjectALazyDaoTest {
     }
 
     @Test
+    @Rollback(false) // 默认回滚，测试数据不保存到数据库，@Rollback(false)：确保事务提交，以便可以看到数据库中的实际更新。
+    @Transactional
     public void update_test() {
         Optional<ProjectALazy> optional = repo.findByName("名称-1");
         optional.ifPresent(project -> {

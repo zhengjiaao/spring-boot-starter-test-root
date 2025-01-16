@@ -96,6 +96,28 @@ public class Project {
 ```java
 
 @Test
+@Rollback(false) // 默认回滚，测试数据不保存到数据库，@Rollback(false)：确保事务提交，以便可以看到数据库中的实际更新。
+@Transactional
+public void update_test() {
+    Optional<Project> optional = repo.findByName("名称-1");
+    optional.ifPresent(project -> {
+        System.out.println(project.getId());
+        System.out.println(project.getName());
+        System.out.println(project.getCreateTime());
+        System.out.println(project.getLastModifiedDate());
+        System.out.println("-------------特殊字段-------------");
+        System.out.println(project.getConfigJson());
+        System.out.println(project.getConfigText());
+        System.out.println("--------------------------");
+    });
+
+    Project project = optional.get();
+    project.setConfigJson(JSON.parseObject("{\"key\":\"value-更新后的值\"}"));
+    project.setConfigText("大文本字段-更新后的值");
+    repo.save(project);
+}
+
+@Test
 public void findAllPage_test() {
     int page = 0;
     int size = 2;

@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
@@ -59,7 +60,8 @@ public class ProjectBLazyDaoTest {
     }
 
     @Test
-    // @Transactional
+    @Rollback(false) // 默认回滚，测试数据不保存到数据库，@Rollback(false)：确保事务提交，以便可以看到数据库中的实际更新。
+    @Transactional
     public void update_test() {
         Optional<ProjectBLazy> optional = repo.findByName("名称-1");
         optional.ifPresent(project -> {
@@ -73,15 +75,15 @@ public class ProjectBLazyDaoTest {
             System.out.println("--------------------------");
         });
 
-
         ProjectBLazy project = optional.get();
-        project.setCycle(4); // 可以生效
+        project.setCycle(3); // 可以生效
 
-        // todo 更新不生效，未执行更新SQL语句
-        project.setConfigJson(JSON.parseObject("{\"key\":\"value-更新后的值\"}"));
-        project.setConfigText("大文本字段-更新后的值");
+        // 若更新不生效，未执行更新SQL语句时，需要 @Transactional 注解，若单元测试时，需配合 @Rollback(false)
+        project.setConfigJson(JSON.parseObject("{\"key\":\"value-更新后的值3\"}"));
+        project.setConfigText("大文本字段-更新后的值3");
 
-        repo.save(project);
+        repo.save(project);  // 更新,生效
+        // repo.saveAndFlush(project);  // 强制刷新,生效
     }
 
     @Test

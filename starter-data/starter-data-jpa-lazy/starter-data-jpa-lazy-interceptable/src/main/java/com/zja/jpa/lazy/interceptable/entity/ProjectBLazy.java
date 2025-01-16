@@ -8,7 +8,6 @@ import org.hibernate.engine.spi.PersistentAttributeInterceptor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -115,44 +114,49 @@ public class ProjectBLazy implements Serializable, PersistentAttributeIntercepta
         this.interceptor = interceptor;
     }
 
+    // 必须的 getter 方法，否则不会懒加载
     public JSONObject getConfigJson() {
+        // 避免二次读取数据库
         if (this.configJson != null) {
             return this.configJson;
         }
 
+        // 自定义懒加载实现，需配合 @Basic(fetch = FetchType.LAZY) + enable_lazy_load_no_trans: true
         return (JSONObject) interceptor.readObject(this, "configJson", this.configJson);
     }
 
+    // 必须的 getter 方法，否则不会懒加载
     public String getConfigText() {
         // 避免二次读取数据库
         if (this.configText != null) {
             return this.configText;
         }
+
+        // 自定义懒加载实现，需配合 @Basic(fetch = FetchType.LAZY) + enable_lazy_load_no_trans: true
         return (String) interceptor.readObject(this, "configText", this.configText);
     }
 
+    // 必须的 setter 方法，否则不会更新
     public void setConfigJson(JSONObject configJson) {
         if (configJson != null) {
             if (interceptor != null) {
-                // todo 更新不生效，未执行更新SQL语句
+                // 若更新不生效，未执行更新SQL语句时，需要 @Transactional 注解，若单元测试时，需配合 @Rollback(false)
                 interceptor.writeObject(this, "configJson", this.configJson, configJson);
-            } else { // 保存时，interceptor拦截器会是空
-                // 可以选择抛出异常、记录日志或采取其他措施
-                // throw new IllegalStateException("Interceptor is not initialized");
             }
         }
 
         this.configJson = configJson;
     }
 
+    // 必须的 setter 方法，否则不会更新
     public void setConfigText(String configText) {
         if (configText != null) {
             if (interceptor != null) {
-                // todo 更新不生效，未执行更新SQL语句
+                // 若更新不生效，未执行更新SQL语句时，需要 @Transactional 注解，若单元测试时，需配合 @Rollback(false)
                 interceptor.writeObject(this, "configText", this.configText, configText);
             } else { // 保存时，interceptor拦截器会是空
                 // 可以选择抛出异常、记录日志或采取其他措施
-                throw new IllegalStateException("Interceptor is not initialized");
+                // throw new IllegalStateException("Interceptor is not initialized");
             }
         }
         this.configText = configText;

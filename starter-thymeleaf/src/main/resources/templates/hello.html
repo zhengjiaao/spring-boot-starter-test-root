@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Page</title>
+</head>
+<body>
+    <h1 th:text="${greeting}">Hello, World!</h1>
+    <p>
+        <a th:href="@{/locale/hello(lang='en', name=${param.name})}">English</a> |
+        <a th:href="@{/locale/hello(lang='zh', name=${param.name})}">中文</a>
+    </p>
+</body>
+</html>

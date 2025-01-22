@@ -7,6 +7,7 @@
 <body>
 hello thymeleaf
 <h1>这里没有用Thymeleaf驱动</h1>
+<h1 th:text="${message}">Default Message</h1>
 <h1 th:text="${server.name}">这里使用thymeleaf驱动</h1>
 </body>
 </html>

@@ -16,4 +16,9 @@ spring:
       #默认
       #static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/
 
+  # 支持国际化
+  messages:
+    basename: messages
+    encoding: UTF-8
+
 # 访问 http://localhost:8080/thymeleaf/index.html

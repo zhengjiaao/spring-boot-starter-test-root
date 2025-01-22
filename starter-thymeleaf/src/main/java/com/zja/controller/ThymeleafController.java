@@ -31,7 +31,9 @@ public class ThymeleafController {
     //http://127.0.0.1:8080/thymeleaf/hello/v2
     @RequestMapping("hello/v2")
     public String hello(Model model) {
+        model.addAttribute("message", "Hello, Thymeleaf!");
         model.addAttribute("server", serverSetttings);
         return "thymeleaf/index";
     }
+
 }

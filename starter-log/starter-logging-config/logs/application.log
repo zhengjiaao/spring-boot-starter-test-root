@@ -1,0 +1,10 @@
+2025-04-14 13:27:38.652 [main] INFO  c.zja.log.logback.LogbackServiceTest - Starting LogbackServiceTest using Java 1.8.0_421 on LAPTOP-3VLAPN33 with PID 3136 (started by changjinyu in D:\Zhengja\project\github\w_java\spring-boot-starter-test-root\starter-log\starter-logging-config)
+2025-04-14 13:27:38.653 [main] INFO  c.zja.log.logback.LogbackServiceTest - The following profiles are active: dev
+2025-04-14 13:27:40.111 [scheduling-1] DEBUG com.zja.log.user.UserService - log=debug
+2025-04-14 13:27:40.112 [scheduling-1] INFO  com.zja.log.user.UserService - log=info
+2025-04-14 13:27:40.112 [scheduling-1] WARN  com.zja.log.user.UserService - log=warn
+2025-04-14 13:27:40.113 [scheduling-1] ERROR com.zja.log.user.UserService - log=error
+2025-04-14 13:27:40.118 [main] INFO  c.zja.log.logback.LogbackServiceTest - Started LogbackServiceTest in 1.931 seconds (JVM running for 3.371)
+2025-04-14 13:27:40.343 [main] INFO  com.zja.log.logback.LogbackService - log=info
+2025-04-14 13:27:40.343 [main] WARN  com.zja.log.logback.LogbackService - log=warn
+2025-04-14 13:27:40.343 [main] ERROR com.zja.log.logback.LogbackService - log=error

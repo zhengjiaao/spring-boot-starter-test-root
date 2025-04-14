@@ -1,0 +1,6 @@
+2025-04-14 13:26:34.549 [main] INFO  com.zja.log.log4j2.Log4j2ServiceTest - Starting Log4j2ServiceTest using Java 1.8.0_421 on LAPTOP-3VLAPN33 with PID 19852 (started by changjinyu in D:\Zhengja\project\github\w_java\spring-boot-starter-test-root\starter-log\starter-log4j2)
+2025-04-14 13:26:34.582 [main] INFO  com.zja.log.log4j2.Log4j2ServiceTest - No active profile set, falling back to default profiles: default
+2025-04-14 13:26:38.979 [main] INFO  com.zja.log.log4j2.Log4j2ServiceTest - Started Log4j2ServiceTest in 5.362 seconds (JVM running for 8.399)
+2025-04-14 13:26:39.309 [main] INFO  com.zja.log.log4j2.Log4j2Service - log=info
+2025-04-14 13:26:39.309 [main] WARN  com.zja.log.log4j2.Log4j2Service - log=warn
+2025-04-14 13:26:39.309 [main] ERROR com.zja.log.log4j2.Log4j2Service - log=error

@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+  undertow:
+    # 线程池配置
+    threads:
+      io: 4                        # 通常设置为 CPU 核心数 x 2
+      worker: 200                   # 最大工作线程数
+
+    # 缓冲区配置
+    buffer-size: 16384              # 16KB
+    direct-buffers: true            # 使用直接内存
+#    buffer-size: 32768       # 32KB更适合大文件上传
+#    direct-buffers: false    # 堆内存模式（GC友好）
+
+    # 连接器配置
+    max-http-post-size: 10MB        # 最大POST数据
+    no-request-timeout: 60000       # 连接空闲超时(ms)
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2049MB     # 设置单文件大小 2G
+      max-request-size: 5121MB  # 设置总上传数据总大小 5G

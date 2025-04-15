@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}} - My App</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<!-- 简单引用 layout/header.html 页面，并传递参数 title 字段-->
+{{>layout/header}}
+
+<main>
+    <div class="user-profile">
+        <h2>{{user.name}}</h2>
+        <p>Age: {{user.age}}</p>
+
+        {{#showEmail}}
+        <p>Email: {{user.email}}</p>
+        {{/showEmail}}
+    </div>
+</main>
+</body>
+</html>

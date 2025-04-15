@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}} - My App</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+    <h1>{{title}}</h1>
+</header>
+<main>
+    {{>layout/header}}
+    {{title}}
+
+    <h2>Features:</h2>
+    <ul>
+        {{#features}}
+        <li>{{.}}</li>
+        {{/features}}
+    </ul>
+</main>
+</body>
+</html>

@@ -28,6 +28,7 @@
         <module>starter-jta-atomikos</module>
         <module>starter-log</module>
         <module>starter-mail</module>
+        <module>starter-mustache</module>
         <!--<module>starter-oauth2</module>-->
         <module>starter-quartz</module>
         <!--<module>starter-security</module>-->

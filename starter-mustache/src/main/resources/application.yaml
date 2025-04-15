@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2049MB     # 设置单文件大小 2G
+      max-request-size: 5121MB  # 设置总上传数据总大小 5G
+
+# Mustache 配置
+  mustache:
+    # 基础配置
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false # 开发时关闭缓存
+    # 视图解析配置
+    check-template-location: true
+
+  # 静态资源配置
+  web:
+    resources:
+      static-locations: classpath:/static/

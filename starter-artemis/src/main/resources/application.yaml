@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2049MB     # 设置单文件大小 2G
+      max-request-size: 5121MB  # 设置总上传数据总大小 5G
+
+  # Artemis 连接配置
+  artemis:
+    mode: native # native 模式
+    broker-url: tcp://localhost:61616 # Artemis 服务地址，默认 tcp://localhost:61616
+    user: admin
+    password: admin
+
+  # JMS 池配置（可选）
+  jms:
+    cache:
+      enabled: true # 开启连接池，默认 true
+      consumers: false # 开启消费者连接池，默认 false
+      producers: true # 开启生产者连接池，默认 true
+    template:
+      default-destination: email.queue # 默认消息队列，默认 null
+

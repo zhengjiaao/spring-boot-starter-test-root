@@ -1,3 +1,7 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
 
 spring:
   datasource:
@@ -5,17 +9,18 @@ spring:
     username: test
     password: pass
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    type: com.alibaba.druid.pool.DruidDataSource  # 默 com.zaxxer.hikari.HikariDataSource 数据库连接池类型
   jpa:
-    show-sql: true # 控制台打印sql
+    show-sql: true
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
+
+  # batch 批处理相关配置
   batch:
     job:
-      enabled: false      # 项目启动完成是否自动执行定义的Job 默 true
-#      names: job1,job2   # 启动时要执行的Job，默认执行全部Job
+      enabled: true # 是否自动执行作业，默 true
+      names: importUserJob # 启动时运行的作业名，默认 执行全部Job
     jdbc:
       initialize-schema: always   # 项目启动时执行建表SQL 默 embedded
       table-prefix: batch_        # 表的前缀  默 batch_

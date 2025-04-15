@@ -11,12 +11,12 @@ spring:
 
   jackson: # 以下是默认配置项（可选的）
     default-property-inclusion: always # always 默认全部返回，non_null 忽略空值
-    date-format: yyyy-MM-dd HH:mm:ss # 全局日期格式，针对 Date 类型生效，例如：LocalDateTime 不生效
-    time-zone: GMT+8 # 设置时区
+#    date-format: yyyy-MM-dd HH:mm:ss # 全局日期格式，针对 Date 类型生效，例如：LocalDateTime 不生效
+#    time-zone: GMT+8 # 设置时区
     deserialization:
       fail-on-unknown-properties: false # 忽略未知属性，默认 false
     serialization:
-      indent-output: true # 设置格式化输出, 默认 false
+      indent-output: false # 设置格式化输出, 默认 false
 
 logging:
   level:

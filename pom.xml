@@ -25,6 +25,7 @@
         <module>starter-dubbo</module>
         <module>starter-freemarker</module>
         <module>starter-jdbc</module>
+        <module>starter-jetty</module>
         <module>starter-json</module>
         <module>starter-jta-atomikos</module>
         <module>starter-log</module>

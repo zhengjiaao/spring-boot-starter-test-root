@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+  jetty:
+    # 线程池配置
+    threads:
+      max: 200
+      min: 10
+      idle-timeout: 60000  # 线程池最大线程数，默认 60000ms
+    # 连接器配置
+    connection-idle-timeout: 30000 # 连接器最大空闲时间，默认 30000ms
+    max-http-form-post-size: 2MB
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2049MB     # 设置单文件大小 2G
+      max-request-size: 5121MB  # 设置总上传数据总大小 5G
+
